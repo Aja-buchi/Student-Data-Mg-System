@@ -1,5 +1,7 @@
 package com.example.studentdatamanagementsystem.service;
 
-public interface TeacherServiceInterface {
+import com.example.studentdatamanagementsystem.response.BaseResponse;
 
+public interface TeacherServiceInterface {
+//    BaseResponse<String>
 }
