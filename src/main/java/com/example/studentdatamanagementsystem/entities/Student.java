@@ -13,6 +13,7 @@ public class Student extends Person{
     private Classes studentClass;
     private Subjects subject;
     private Terms term;
-    private String results;
+    private Results results;
     private String score;
+    private String totalScore;
 }
