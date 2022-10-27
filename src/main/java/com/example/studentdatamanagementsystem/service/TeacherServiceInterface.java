@@ -1,22 +1,29 @@
 package com.example.studentdatamanagementsystem.service;
 
 import com.example.studentdatamanagementsystem.dto.StudentDto;
-import com.example.studentdatamanagementsystem.enums.Results;
+import com.example.studentdatamanagementsystem.dto.SubjectDto;
 import com.example.studentdatamanagementsystem.enums.Subjects;
-import com.example.studentdatamanagementsystem.enums.Terms;
+import com.example.studentdatamanagementsystem.exceptions.AlreadyComputedResultException;
+import com.example.studentdatamanagementsystem.exceptions.StudentAlreadyExistException;
+import com.example.studentdatamanagementsystem.exceptions.StudentNotFoundException;
+import com.example.studentdatamanagementsystem.exceptions.WrongSubjectCombinationException;
 import com.example.studentdatamanagementsystem.response.BaseResponse;
 
+import java.util.List;
+
 public interface TeacherServiceInterface {
-    BaseResponse<String> getStudentScore(Terms term);
+    BaseResponse<String> addStudent(StudentDto studentDto) throws StudentAlreadyExistException;
+    List<?> getStudentScore(SubjectDto subjectDto) throws StudentNotFoundException;
 
-    BaseResponse<String> createStudent(StudentDto studentDto);
+    BaseResponse<String> calculateScore(SubjectDto subjectDto) throws StudentNotFoundException;
 
-    BaseResponse<String> addScore(StudentDto studentDto);
+    List<Subjects> getStudentResultBaseOnTermAndClass(SubjectDto subjectDto) throws StudentNotFoundException;
 
-    BaseResponse<String> addResult(Results results);
+    BaseResponse<String> getStudentResult(SubjectDto subjectDto) throws StudentNotFoundException;
 
-    BaseResponse<String> getStudentScore(Subjects subject);
+    BaseResponse<String> calculateAverageScore(SubjectDto subjectDto) throws StudentNotFoundException;
 
-    BaseResponse<String> getStudentAvgScore(StudentDto studentDto);
+    BaseResponse<String> calculateResult(SubjectDto subjectDto) throws StudentNotFoundException, AlreadyComputedResultException, IllegalAccessException;
 
+    BaseResponse<String> computeStudentResult(SubjectDto subjectDto) throws StudentNotFoundException, ClassNotFoundException, StudentAlreadyExistException, WrongSubjectCombinationException, IllegalAccessException;
 }

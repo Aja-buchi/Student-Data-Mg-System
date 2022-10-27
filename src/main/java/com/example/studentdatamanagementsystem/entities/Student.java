@@ -10,10 +10,10 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 @Entity
 public class Student extends Person{
-    private Classes studentClass;
-    private Subjects subject;
-    private Terms term;
-    private Results results;
-    private String score;
-    private String totalScore;
+    private String studentClass;
+//    private Subjects subject;
+//    private Terms term;
+//    private Results results;
+//    private String score;
+//    private String totalScore;
 }
