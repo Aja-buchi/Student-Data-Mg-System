@@ -1,10 +1,13 @@
 package com.example.studentdatamanagementsystem.entities;
 import lombok.*;
 
+import javax.persistence.MappedSuperclass;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@MappedSuperclass
 abstract class Person extends BaseClass {
     private String firstname;
     private String lastname;

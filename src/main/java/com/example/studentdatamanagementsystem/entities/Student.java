@@ -1,9 +1,10 @@
 package com.example.studentdatamanagementsystem.entities;
 
-import com.example.studentdatamanagementsystem.enums.*;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Getter @Setter
 @NoArgsConstructor
@@ -11,9 +12,7 @@ import javax.persistence.Entity;
 @Entity
 public class Student extends Person{
     private String studentClass;
-//    private Subjects subject;
-//    private Terms term;
-//    private Results results;
-//    private String score;
-//    private String totalScore;
+
+    @OneToMany(targetEntity = Subjects.class, mappedBy = "id")
+    private List<Subjects> listOfSubjects;
 }

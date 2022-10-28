@@ -2,9 +2,8 @@ package com.example.studentdatamanagementsystem.entities;
 
 import com.example.studentdatamanagementsystem.enums.Terms;
 import lombok.*;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+
+import javax.persistence.*;
 
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
@@ -51,4 +50,8 @@ public class Subjects extends BaseClass{
     private Integer totalScore;
 
     private Double averageScore;
+
+    @ManyToOne
+    @JoinColumn(name = "student_id", referencedColumnName = "id")
+    Student student;
 }
